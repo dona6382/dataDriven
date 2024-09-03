@@ -14,12 +14,12 @@ export class ProductReviewsService {
   ) {}
 
   async createRandomData() {
-    const numberOfReviews = 1000000;  // 생성할 리뷰 수
+    const numberOfReviews = 30000;  // 생성할 리뷰 수
     const randomReviews: ProductReview[] = await generateRandomReviews(numberOfReviews);
 
     const newProductReviews = randomReviews.map(review => new CreateProductReviewDto(review));
 
-    return await this.saveProductReviewsInChunks(newProductReviews, 2000);
+    return await this.saveProductReviewsInChunks(newProductReviews, 3000);
   }
 
 
@@ -27,7 +27,7 @@ export class ProductReviewsService {
     await this.dataSource.transaction(async manager => {
       for (let i = 0; i < newProductReviews.length; i += chunkSize) {
         const chunk = newProductReviews.slice(i, i + chunkSize);
-        await manager.save(ProductReview, chunk);
+        await manager.insert(ProductReview, chunk);
       }
     });
   }

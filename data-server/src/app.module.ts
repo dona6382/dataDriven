@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import {ProductDetailsModule} from './product-details/product-details.module'
+import {ProductReviewsModule} from './product-reviews/product-reviews.module'
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import {ProductDetailsModule} from './product-details/product-details.module'
       logging: true, // - orm 사용시 로그 남기기
       // dropSchema: true, // - 구동시 해당 테이블 삭제 synchronize와 동시 사용
     }),
-    ProductDetailsModule
+    ProductDetailsModule, ProductReviewsModule
   ],
   controllers: [AppController],
   providers: [AppService],
