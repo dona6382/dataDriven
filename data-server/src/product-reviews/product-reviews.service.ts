@@ -32,8 +32,18 @@ export class ProductReviewsService {
     });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} productReview`;
+  async findAll(page: number) {
+    const pageSize = 100;
+    const [result, total] = await this.productReviewRepository.findAndCount({
+      skip: (page - 1) * pageSize,
+      take: pageSize,
+    });
+
+    return {
+      data: result,
+      total,
+      lastPage: Math.ceil(total / pageSize),
+    };
   }
 
 }

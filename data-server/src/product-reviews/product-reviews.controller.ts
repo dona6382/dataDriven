@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {Controller, Get, Post, Body, Patch, Param, Delete, Query} from '@nestjs/common';
 import { ProductReviewsService } from './product-reviews.service';
 import { CreateProductReviewDto } from './dto/create-product-review.dto';
 
@@ -11,9 +11,9 @@ export class ProductReviewsController {
     return this.productReviewsService.createRandomData();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.productReviewsService.findOne(+id);
+  @Get()
+  findAll(@Query('page') page: number) {
+    return this.productReviewsService.findAll(page);
   }
 
 }

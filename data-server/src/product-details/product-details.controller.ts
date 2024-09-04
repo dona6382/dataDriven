@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import {Controller, Get, Post, Body, Param, Query} from '@nestjs/common';
 import { ProductDetailsService } from './product-details.service';
 import { CreateProductDetailsDto } from './dto/create-product-details.dto';
 
@@ -11,9 +11,9 @@ export class ProductDetailsController {
     return this.productDetailsService.createRandomData();
   }
 
-  @Get(':id')
-  find(@Param('id') id: string) {
-    return this.productDetailsService.findOne(+id);
+  @Get()
+  findAll(@Query('page') page: number) {
+    return this.productDetailsService.findAll(page);
   }
 
 }

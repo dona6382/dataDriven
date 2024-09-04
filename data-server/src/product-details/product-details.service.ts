@@ -33,7 +33,17 @@ export class ProductDetailsService {
     });
   }
 
-  findOne(id: number) {
-    // return this.productDetailRepository.findOne({ where: { #id } });
+  async findAll(page: number) {
+    const pageSize = 100;
+    const [result, total] = await this.productDetailRepository.findAndCount({
+      skip: (page - 1) * pageSize,
+      take: pageSize,
+    });
+
+    return {
+      data: result,
+      total,
+      lastPage: Math.ceil(total / pageSize),
+    };
   }
 }
