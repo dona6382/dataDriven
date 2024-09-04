@@ -38,6 +38,9 @@ export class ProductDetailsService {
     const [result, total] = await this.productDetailRepository.findAndCount({
       skip: (page - 1) * pageSize,
       take: pageSize,
+      order: {
+        productId: 'ASC',
+      },
     });
 
     return {

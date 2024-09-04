@@ -37,6 +37,9 @@ export class ProductReviewsService {
     const [result, total] = await this.productReviewRepository.findAndCount({
       skip: (page - 1) * pageSize,
       take: pageSize,
+      order: {
+        productId: 'ASC',
+      },
     });
 
     return {
