@@ -10,7 +10,7 @@ function generateRandomReview(productIds: string[], reviewers: string[]): Produc
     const date = new Date(Date.now() - Math.floor(Math.random() * 1000 * 60 * 60 * 24 * 50)).toISOString().split('T')[0]; // 최근 50일 내의 날짜
 
     return {
-        review_id: uuidv4(),
+        reviewId: uuidv4(),
         productId: productId,
         reviewer: reviewer,
         rating: parseFloat(rating),

@@ -3,7 +3,7 @@ import {ProductReview} from "../entities/product-review.entity";
 
 export class CreateProductReviewDto {
     @IsString()
-    review_id: string;       // 리뷰 ID
+    reviewId: string;       // 리뷰 ID
 
     @IsString()
     reviewer: string;       // 리뷰 작성자
@@ -18,7 +18,7 @@ export class CreateProductReviewDto {
     date: string;           // 작성 일자
 
     constructor(review: ProductReview) {
-        this.review_id = review.review_id;
+        this.reviewId = review.reviewId;
         this.reviewer = review.reviewer;
         this.productId = review.productId;
         this.rating = review.rating;

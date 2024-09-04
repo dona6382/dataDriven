@@ -1,5 +1,5 @@
 export interface ProductReviews {
-    review_id: string;
+    reviewId: string;
     reviewer: string;       // 리뷰 작성자
     productId: string;      // 제품 ID
     rating: number;         // 평점 (1~5)
