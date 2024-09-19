@@ -6,11 +6,9 @@
 
 - 대용량 데이터 처리를 위한 데이터 처리 서버 및 데이터 생성 서버
 
-## 기술 스택
-
-- Node.js 18.16
-- NestJS
-- TypeScript
+## 요구사항
+- Node.js (버전)
+- TypeScript (버전)
 
 ## 데이터 정의
 
