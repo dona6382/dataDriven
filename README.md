@@ -6,6 +6,7 @@
 
 ## 요구사항
 - Node.js (버전)
+- NestJS
 - TypeScript (버전)
 
 ## 데이터 정의
