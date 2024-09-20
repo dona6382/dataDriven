@@ -20,9 +20,14 @@ export class BatchService implements OnApplicationBootstrap {
     });
 
     try {
-
       this.logger.log(`Batch 시작`);
 
+      this.logger.log(`productDetails 시작`);
+
+      const collectProductDetails = await this.ProductDetailsService.collectProductDetails();
+      // const transformProductDetails = await this.transformProductDetailsService.transformProductDetails(collectProductDetails);
+
+      this.logger.log(`Batch 종료`);
     } catch (error) {
       this.logger.error(
         'Batch 작업 중 에러 발생: ' + error.message,
