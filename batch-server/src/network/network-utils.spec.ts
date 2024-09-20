@@ -48,11 +48,11 @@ describe('NetworkService', () => {
 
       const result = await service.sendNetworkRequest({
         method: 'get',
-        url: 'http://localhost:3000/api-docs',
+        url: 'http://localhost:5001/api-docs',
       });
 
       expect(result).toEqual(mockResponse);
-      expect(ky.get).toHaveBeenCalledWith('http://localhost:3000/api-docs', {
+      expect(ky.get).toHaveBeenCalledWith('http://localhost:5001/api-docs', {
         headers: undefined,
         body: undefined,
       });
@@ -70,7 +70,7 @@ describe('NetworkService', () => {
 
       const result = await service.sendNetworkRequest({
         method: 'get',
-        url: 'http://localhost:3000/api/product-details?page=1',
+        url: 'http://localhost:5001/api/product-details?page=1',
         headers: { 'Content-Type': 'application/json' }
       });
 

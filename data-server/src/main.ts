@@ -48,7 +48,7 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ResponseInterceptor());
 
   // 애플리케이션 실행
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 5001;
   await app.listen(port, () => {
     console.log(`Data server Application is running port : ${port}`);
   });
