@@ -7,8 +7,9 @@
 - 대용량 데이터 처리를 위한 데이터 처리 서버 및 데이터 생성 서버
 
 ## 요구사항
-- Node.js (버전)
-- TypeScript (버전)
+- Node.js 18.12
+- TypeScript
+- NestJs
 
 ## 데이터 정의
 
@@ -26,6 +27,9 @@
 
 ### batch-server (개발 진행 중)
 - 진행 중
+- [개발 완료] 로그
+- [개발 완료] HTTP 요청 공통부분
+- [개발 완료] product details 데이터 수집
 
 
 ## 실행 방법
@@ -35,18 +39,21 @@
    npm install
 
 2. **데이터 서버 실행**
-- 3000번 port 사용
+- 5001번 port 사용
    ```bash   
    npm run start:data-server
 
-3. **데이터 처리 어플리케이션 실행**
+3. **⚡️ 초기실행 하는 경우라면 샘플 데이터 생성 ⚡️**
+- [data-server 서버 관련](#data-server-서버)
+
+4. **데이터 처리 어플리케이션 실행**
 - 
 
-## data-server
+## data-server 서버 
 - `실행방법` 2번 `데이터 서버 실행`후 생성 가능
-- swagger 참고 [http://localhost:3000/api-docs](http://localhost:3000/api-docs/)
+- swagger 참고 [http://localhost:5001/api-docs](http://localhost:5001/api-docs/)
 ### `productDetails` 샘플 데이터 생성
-- 데이터 서버 실행 후: [http://localhost:3000/api/product-details](http://localhost:3000/api/product-details)
+- 데이터 서버 실행 후: [http://localhost:5001/api/product-details](http://localhost:5001/api/product-details)
 
 ### `productReviews` 샘플 데이터 생성
-- 데이터 서버 실행 후: [http://localhost:3000/api/product-reviews](http://localhost:3000/api/product-reviews)
+- 데이터 서버 실행 후: [http://localhost:5001/api/product-reviews](http://localhost:5001/api/product-reviews)
