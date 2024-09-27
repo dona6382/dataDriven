@@ -30,6 +30,7 @@
 - [개발 완료] 로그
 - [개발 완료] HTTP 요청 공통부분
 - [개발 완료] product details 데이터 수집
+- [개발 완료] product details 데이터 정제
 
 
 ## 실행 방법
