@@ -1,6 +1,8 @@
 import { Inject, Injectable, OnApplicationBootstrap } from '@nestjs/common';
 import { Cron, Interval } from '@nestjs/schedule';
 import { Logger } from '../log/type/logger';
+import { CollectProductDetailsService } from './product/product-details/collect-product-details.service';
+import { TransformProductDetailsService } from './product/product-details/transform-product-details.service';
 import { toZonedTime, format } from 'date-fns-tz';
 
 @Injectable()
@@ -8,6 +10,8 @@ export class BatchService implements OnApplicationBootstrap {
   constructor(
     @Inject('BatchLogger')
     private readonly logger: Logger,
+    private readonly ProductDetailsService: CollectProductDetailsService,
+    private readonly transformProductDetailsService: TransformProductDetailsService
   ) {}
 
   @Cron('0 */10 * * * *')
@@ -25,7 +29,7 @@ export class BatchService implements OnApplicationBootstrap {
       this.logger.log(`productDetails 시작`);
 
       const collectProductDetails = await this.ProductDetailsService.collectProductDetails();
-      // const transformProductDetails = await this.transformProductDetailsService.transformProductDetails(collectProductDetails);
+      const transformProductDetails = await this.transformProductDetailsService.transformProductDetails(collectProductDetails);
 
       this.logger.log(`Batch 종료`);
     } catch (error) {

@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Log } from '../log/entities/logger.entity';
 import { NetworkService } from '../network/network.service';
 import { CollectProductDetailsService } from './product/product-details/collect-product-details.service';
+import { TransformProductDetailsService } from './product/product-details/transform-product-details.service';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { CollectProductDetailsService } from './product/product-details/collect-
     { provide: 'BatchLogger', useClass: ConsoleLogger },
     NetworkService,
     CollectProductDetailsService,
+    TransformProductDetailsService,
   ],
 })
 export class BatchModule {}
