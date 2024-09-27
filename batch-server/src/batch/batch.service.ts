@@ -8,7 +8,7 @@ import { toZonedTime, format } from 'date-fns-tz';
 @Injectable()
 export class BatchService implements OnApplicationBootstrap {
   constructor(
-    @Inject('BatchLogger')
+    @Inject('Logger')
     private readonly logger: Logger,
     private readonly ProductDetailsService: CollectProductDetailsService,
     private readonly transformProductDetailsService: TransformProductDetailsService

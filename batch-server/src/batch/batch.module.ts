@@ -24,7 +24,7 @@ import { TransformProductDetailsService } from './product/product-details/transf
   ],
   providers: [
     BatchService,
-    { provide: 'BatchLogger', useClass: ConsoleLogger },
+    { provide: 'Logger', useClass: ConsoleLogger },
     NetworkService,
     CollectProductDetailsService,
     TransformProductDetailsService,
