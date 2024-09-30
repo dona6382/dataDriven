@@ -39,7 +39,7 @@ export class ProductReviewsService {
       throw new Error("productId must exist");
     }
 
-    const [result, total] = await this.productReviewRepository.findAndCount({
+    const [result, totalPage] = await this.productReviewRepository.findAndCount({
       where: { productId },
       skip: (page - 1) * pageSize,
       take: pageSize,
@@ -49,9 +49,8 @@ export class ProductReviewsService {
     });
 
     return {
-      data: result,
-      total,
-      lastPage: Math.ceil(total / pageSize),
+      dataList: result,
+      totalPage,//todo totalPage부분 데이터 추가해서 확인해보기
     };
   }
 

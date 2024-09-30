@@ -44,7 +44,7 @@ export class ProductDetailsService {
     });
 
     return {
-      data: result,
+      dataList: result,
       total,
       lastPage: Math.ceil(total / pageSize),
     };
