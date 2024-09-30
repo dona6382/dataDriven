@@ -49,9 +49,7 @@ export class TransformProductDetailsService {
             `transformedProductDetails 중복 처리  : ${uniqueProductDetails.length}`,
         );
 
-        return {
-            uniqueProductDetails,
-        };
+        return uniqueProductDetails;
     }
 
     private transformProductDetail(key: string, collectProductDetailObject: any) {
@@ -60,7 +58,7 @@ export class TransformProductDetailsService {
         try {
             switch (key) {
                 case '5001':
-                    const collectProductDetailPageList5001 = collectProductDetailObject.data;
+                    const collectProductDetailPageList5001 = collectProductDetailObject.dataList;
 
                     if (collectProductDetailPageList5001.length > 0) {
                         for (const collectProductDetailPage of collectProductDetailPageList5001) {
