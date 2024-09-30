@@ -8,6 +8,7 @@ import { Log } from '../log/entities/logger.entity';
 import { NetworkService } from '../network/network.service';
 import { CollectProductDetailsService } from './product/product-details/collect-product-details.service';
 import { TransformProductDetailsService } from './product/product-details/transform-product-details.service';
+import { CollectProductReviewsService } from './product/product-reviews/collect-product-reviews.service';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { TransformProductDetailsService } from './product/product-details/transf
     NetworkService,
     CollectProductDetailsService,
     TransformProductDetailsService,
+    CollectProductReviewsService,
   ],
 })
 export class BatchModule {}
