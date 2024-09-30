@@ -12,8 +12,8 @@ export class ProductReviewsController {
   }
 
   @Get()
-  findAll(@Query('page') page: number) {
-    return this.productReviewsService.findAll(page);
+  findProductId(@Query('productId') productId: string, @Query('page') page: number) {
+    return this.productReviewsService.findProductId(productId, page);
   }
 
 }

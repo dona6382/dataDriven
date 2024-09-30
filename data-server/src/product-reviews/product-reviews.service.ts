@@ -32,9 +32,15 @@ export class ProductReviewsService {
     });
   }
 
-  async findAll(page: number) {
+  async findProductId(productId: string, page: number) {
     const pageSize = 100;
+
+    if (!productId) {
+      throw new Error("productId must exist");
+    }
+
     const [result, total] = await this.productReviewRepository.findAndCount({
+      where: { productId },
       skip: (page - 1) * pageSize,
       take: pageSize,
       order: {
@@ -48,5 +54,6 @@ export class ProductReviewsService {
       lastPage: Math.ceil(total / pageSize),
     };
   }
+
 
 }
